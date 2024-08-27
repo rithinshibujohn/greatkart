@@ -141,3 +141,10 @@ MESSAGE_TAGS = {
     messages.ERROR: "danger",
 }
 
+#SMTP CONGIGURATION 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'rithinthiruvalla@gmail.com' 
+EMAIL_HOST_PASSWORD = 'jftz bebf rzxf qpvq'
+EMAIL_USE_TLS = True
