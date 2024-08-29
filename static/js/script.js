@@ -51,7 +51,11 @@ $(document).ready(function() {
 		$('[data-toggle="tooltip"]').tooltip()
 	} // end if
 
-
+    setTimeout(function(){
+        $('#messages').fadeOut('slow', function() {
+            $(this).remove();
+        });
+    }, 1000);
 
 
     
@@ -59,8 +63,6 @@ $(document).ready(function() {
 // jquery end
 
 
-setTimeout(function(){
-    $('#message').fadeOut('slow', function() {
-        $(this).remove();
-    });
-}, 1000);
+
+
+
