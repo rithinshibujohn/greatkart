@@ -12,12 +12,12 @@
                 <strong clss="d-inline-block mr-3">Edit your profile</strong>
             </header>
             <div class="card-body">
-              <div>
-                <img src="{{userprofile.profile_picture.url}}" alt="Profile Picture" width="100" style="border-radius: 30%;">
+              <div class="text-right">
+                <img src="{{userprofile.profile_picture.url}}" alt="Profile Picture" width="100" style="border-radius: 50%;">
               </div>
                 <div class="row"> 
                 <div class="col-md-12">
-                  <form action="" method="POST">
+                  <form action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-row">
                       <div class="form-group col-md-6">

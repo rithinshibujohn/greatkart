@@ -1,60 +1,46 @@
-// some scripts
-
-// jquery ready start
+// jQuery ready start
 $(document).ready(function() {
-	// jQuery code
+    // jQuery code
 
-
-    /* ///////////////////////////////////////
-
-    THESE FOLLOWING SCRIPTS ONLY FOR BASIC USAGE, 
-    For sliders, interactions and other
-
-    */ ///////////////////////////////////////
-    
-
-	//////////////////////// Prevent closing from click inside dropdown
+    //////////////////////// Prevent closing from click inside dropdown
     $(document).on('click', '.dropdown-menu', function (e) {
-      e.stopPropagation();
+        e.stopPropagation();
     });
 
-
+    // Handling radio button changes
     $('.js-check :radio').change(function () {
         var check_attr_name = $(this).attr('name');
+        var item = $(this).closest('.js-check'); // Define item
         if ($(this).is(':checked')) {
-            $('input[name='+ check_attr_name +']').closest('.js-check').removeClass('active');
-            $(this).closest('.js-check').addClass('active');
-           // item.find('.radio').find('span').text('Add');
-
+            $('input[name=' + check_attr_name + ']').closest('.js-check').removeClass('active');
+            item.addClass('active');
         } else {
             item.removeClass('active');
-            // item.find('.radio').find('span').text('Unselect');
         }
     });
 
-
+    // Handling checkbox changes
     $('.js-check :checkbox').change(function () {
         var check_attr_name = $(this).attr('name');
+        var item = $(this).closest('.js-check'); // Define item
         if ($(this).is(':checked')) {
-            $(this).closest('.js-check').addClass('active');
-           // item.find('.radio').find('span').text('Add');
+            item.addClass('active');
         } else {
-            $(this).closest('.js-check').removeClass('active');
-            // item.find('.radio').find('span').text('Unselect');
+            item.removeClass('active');
         }
     });
 
+    //////////////////////// Bootstrap tooltip
+    if($('[data-toggle="tooltip"]').length > 0) {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
 
+    // Fade out messages after 1 second
+    setTimeout(function() {
+        $('#messages').fadeOut('slow', function() {
+            $(this).remove();
+        });
+    }, 5000);
 
-	//////////////////////// Bootstrap tooltip
-	if($('[data-toggle="tooltip"]').length>0) {  // check if element exists
-		$('[data-toggle="tooltip"]').tooltip()
-	} // end if
-
-
-
-
-    
-}); 
-// jquery end
-
+});
+// jQuery end
